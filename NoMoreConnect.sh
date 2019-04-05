@@ -23,7 +23,7 @@
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #	     									    	  #
-#	This script will remove all versions of Jamf Connect and NoMAD/NoMAD Pro	  #					
+#	This script will remove all versions of Jamf Connect and NoMAD/NoMAD Login	  #					
 #	     									    	  #							   
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #	     									    	  #
