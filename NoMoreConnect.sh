@@ -334,10 +334,11 @@ fi
 #####################################
 ######	Kill the Login Window  ######
 #####################################
+
 if [ -e "$jclloc" ] || [ -e "$jcloloc" ] || [ -f "$jclplist" ] || [ -e "$nlloc" ] || [ -f "$nlplist" ] ;
 then
 	echo "Resetting the Login Window"
-	killall loginwindow
+	killall loginwindow &
 else
 	echo "We do not need to reset Login Window" 
 fi
