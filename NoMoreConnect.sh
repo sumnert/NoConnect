@@ -259,7 +259,6 @@ if [ -e "$jclloc" ] || [ -e "$jcloloc" ] || [ -f "$jclplist" ];
 then
 	echo "Jamf Connect Login was found"
 	/usr/local/bin/authchanger -reset
-	killall loginwindow
 
 #Removes Jamf Connect Login bundle
 	if [ -e "$jclloc" ];
@@ -308,7 +307,6 @@ if [ -e "$nlloc" ] || [ -f "$nlplist" ];
 then
 	echo "NoMAD Login was found"
 	/usr/local/bin/authchanger -reset
-	killall loginwindow
 
 #Removes NoMAD Login and .plist if found and resets the loginwindow to Apples
 	if [ -e "$nlloc" ];
@@ -331,4 +329,15 @@ then
 #NoMAD Login is not found on the computer
 else
 	echo "NoMAD Login not found on the Computer"
+fi
+
+#####################################
+######	Kill the Login Window  ######
+#####################################
+if [ -e "$jclloc" ] || [ -e "$jcloloc" ] || [ -f "$jclplist" ] || [ -e "$nlloc" ] || [ -f "$nlplist" ] ;
+then
+	echo "Resetting the Login Window"
+	killall loginwindow
+else
+	echo "We do not need to reset Login Window" 
 fi
