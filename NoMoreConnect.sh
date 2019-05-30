@@ -154,9 +154,12 @@ echo "Checking for Jamf Connect Sync"
 jcsloc="/Library/LaunchAgents/com.jamf.connect.sync.plist"
 jcsapp="/Applications/Jamf Connect Sync.app"
 jcsplist="/Library/Managed Preferences/com.jamf.connect.sync.plist"
+jcsnomad="/Library/Google/Chrome/NativeMessagingHosts/menu.nomad.nomadpro.json"
+jcssync="/Library/Google/Chrome/NativeMessagingHosts/com.jamf.connect.sync.chrome.json"
+jcschrome="/Library/Google/Chrome/NativeMessagingHosts/jamfconnect-chrome"
 
 #Check for Jamf Connect Sync
-if [ -f "$jcsloc" ] || [ -d "$jcsapp" ] || [ -f "$jcsplist" ];
+if [ -f "$jcsloc" ] || [ -d "$jcsapp" ] || [ -f "$jcsplist" ] || [ -f "$jcsnomad" ] || [ -f "$jcssync" ] || [ -f "$jcschrome" ];
 then
 	echo "Jamf Connect Sync was found"
 
@@ -187,11 +190,36 @@ then
 	else
 		echo "Jamf Connect Sync .plist not found the Computer"
 	fi
+#Removes menu.nomad.nomadpro.json if found
+	if [ -f "$jcsnomad" ];
+	then
+		/bin/rm "$jcsnomad"
+		echo "Removed Chrome Native Messaging Host - menu.nomad.nomadpro.json"
+	else
+		echo "Chrome Native Messaging Host - menu.nomad.nomadpro.json not found the Computer"
+	fi
+#Removes com.jamf.connect.sync.chrome.json if found
+	if [ -f "$jcssync" ];
+	then
+		/bin/rm "$jcssync"
+		echo "Removed Chrome Native Messaging Host - com.jamf.connect.sync.chrome.json"
+	else
+		echo "Chrome Native Messaging Host - com.jamf.connect.sync.chrome.json not found the Computer"
+	fi
+#Removes jamfconnect-chrome if found
+	if [ -f "$jcschrome" ];
+	then
+		/bin/rm "$jcschrome"
+		echo "Removed Chrome Native Messaging Host - jamfconnect-chrome"
+	else
+		echo "Chrome Native Messaging Host - jamfconnect-chrome"
+	fi	
 
 #Jamf Connect Sync is not found on the computer
 else
 	echo "Jamf Connect Sync not found on the Computer"
 fi
+
 
 #########################################################
 ######	Checking and Removing Jamf Connect Verify  ######
