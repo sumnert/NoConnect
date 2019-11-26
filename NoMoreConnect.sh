@@ -23,8 +23,9 @@
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #	     									    	  #
-#	This script will remove all versions of Jamf Connect and NoMAD/NoMAD Login	  #
-#	If Jamf Connect Login/NoMAD Login is installed it will log out the user		  #				
+#	This script will remove all versions of Jamf Connect and NoMAD/NoMAD Login.	  #
+#	Before running this script unscope the Configuration Profile deploying the	  #
+#	.plist. If Jamf Connect Login/NoMAD Login is installed it will log out the user.  #				
 #	     									    	  #							   
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #	     									    	  #
